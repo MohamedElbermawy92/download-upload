@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Builder
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Files extends Item{
 
     @Lob

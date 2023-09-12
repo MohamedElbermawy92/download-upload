@@ -1,0 +1,30 @@
+
+version: "3"
+services:
+  docker-postgre:
+    image: postgres:latest
+    container_name: my-postgres-container
+    environment:
+      - POSTGRES_DB= Mydrone
+      - POSTGRES_PASSWORD=root56789
+      - POSTGRES_USER=root
+    ports:
+      - 5432:5432
+
+  app:
+    build: .
+    image: download-upload:latest
+    container_name: my-spring-boot-container
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_USER= root
+      - DATABASE_PASSWORD= root56789
+      - DATABASE_NAME= Mydrone
+      - DATABASE_PORT= 3306
+
+    depends_on:
+      - docker-postgre
+
+
+

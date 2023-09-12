@@ -1,0 +1,4 @@
+FROM openjdk:11
+ADD target/download-upload-0.0.1.jar download-upload.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","download-upload.jar"]

@@ -5,23 +5,23 @@ services:
     image: postgres:latest
     container_name: my-postgres-container
     environment:
-      - POSTGRES_DB= Mydrone
+      - POSTGRES_DB= MyDB
       - POSTGRES_PASSWORD=root56789
       - POSTGRES_USER=root
     ports:
-      - 5432:5432
+      - 5432:5423
 
   app:
     build: .
     image: download-upload:latest
     container_name: my-spring-boot-container
     ports:
-      - 8080:8080
+      - 8081:8081
     environment:
       - DATABASE_USER= root
       - DATABASE_PASSWORD= root56789
-      - DATABASE_NAME= Mydrone
-      - DATABASE_PORT= 3306
+      - DATABASE_NAME= MyDB
+      - DATABASE_PORT= 5423
 
     depends_on:
       - docker-postgre
